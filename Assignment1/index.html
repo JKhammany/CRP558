@@ -3,19 +3,24 @@
 <body>
 
 <h1>Assignment 1</h1>
-<p>My first paragraph.</p>
-    
-<p>id="demo"></p>
+
+   <p>Looping my fruit array:</p>
+
+<p id="demo"></p>
 
 <script>
-function myFunction() {
-    var text = "<ul>";
-    var fruits = ["apples", "oranges", "strawberries", "watermelon", "peaches"];
-    for (index = 0; index < fruits.length; index++)
-        {text += "<li>" + fruits[indext] + "</li>";}
-    text += "</ul>";
-    document.getElementByID("demo").innerHTML = text;}
-    </script>
+var fruits, text, fLen, i;
+fruits = ["Apple", "Orange", "Banana", "Mango", "Pineapple", "Peach", "Strawberry", "Watermelon"];
+fLen = fruits.length;
+
+text = "<ul>";
+for (i = 0; i < fLen; i++) {
+  text += "<li>" + fruits[i] + "</li>";
+}
+text += "</ul>";
+
+document.getElementById("demo").innerHTML = text;
+</script>
 
 </body>
 </html>
