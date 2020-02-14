@@ -22,15 +22,23 @@ text += "</ul>";
 document.getElementById("demo").innerHTML = text;
 </script>
 
-   <p>Function using an object:</p>
- 
-   <script>
-   var person = {firstName:"Jasmine", lastName:"Khammany", age:22, eyeColor:"brown"};
-function myFunction() {
-    return this.firstName + " " + this.lastName;
-  }
-      myFuncion();
-   </script>
+<h2>Object:</h2>
+
+<p id="demo"></p>
+
+<script>
+// Create an object:
+var person = {
+  firstName: "Jasmine",
+  lastName: "Khammany",
+  age: 22,
+  eyeColor: "brown"
+};
+
+// Display some data from the object:
+document.getElementById("demo").innerHTML =
+person.firstName + " is " + person.age + " years old.";
+</script>
    
 </body>
 </html>
