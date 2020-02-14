@@ -22,5 +22,16 @@ text += "</ul>";
 document.getElementById("demo").innerHTML = text;
 </script>
 
+   <p>Function using an object:</p>
+ 
+  var person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+   
 </body>
 </html>
