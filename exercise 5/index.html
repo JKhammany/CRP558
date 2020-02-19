@@ -25,6 +25,12 @@
 
 <body>
     <div id='map'></div>
+    
+    <br>Pan to <a href="javascript:square()">St. Mark's Square</a><br>
+
+    <a href="javascript:zoomOut()">Zoom out to level 8</a><br>
+
+    <button id="bridgebtn">See Rialto Bridge</button>
 
     <script>
         var map = L.map('map').setView([45.436, 12.337], 13.35);
@@ -40,6 +46,42 @@
         L.marker([45.4343911, 12.3311736]).addTo(map)
             .bindPopup("My Hotel")
             .openPopup();
+  
+  //an array of places
+        var places = [
+            [45.4380612, 12.3351778, "Rialto Bridge"],
+            [45.433962, 12.3367859, "St. Mark's Square"],
+            [45.4419074, 12.3213514, "Santa Lucia Station"]
+        ];
+
+        //loop through the array and add a marker for each
+        for (var i = 0; i < places.length; i++) {
+            marker = new L.marker([places[i][0], places[i][1]])
+                .bindPopup(places[i][2])
+                .addTo(map);
+        }
+
+
+        //----------Links below the Map----------
+
+        //Pan to St. Mark's Square
+        function square() {
+            map.panTo(new L.LatLng(45.433962, 12.3367859));
+        }
+
+        //set Zoom
+        function zoomOut() {
+            map.setZoom(8);
+        };
+
+
+        //add an event listener for a click event on the button
+        document.getElementById("bridgebtn").addEventListener("click", bridge);
+
+        //Rialto Bridge function
+        function bridge() {
+            map.setView(new L.LatLng(45.4386863,12.3253839),15.85);
+        };    
     </script>
 
 </body>
