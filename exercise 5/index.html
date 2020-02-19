@@ -31,6 +31,10 @@
     <a href="javascript:zoomOut()">Zoom out to level 8</a><br>
 
     <button id="bridgebtn">See Rialto Bridge</button>
+    
+    <button id="winebarbtn">Local Wine Bar: Enoteca Vintido</button>
+    
+    <button id="myhotelbtn">Alloggi Alla Scala Hostel</button>
 
     <script>
         var map = L.map('map').setView([45.436, 12.337], 13.35);
@@ -51,7 +55,8 @@
         var places = [
             [45.4380612, 12.3351778, "Rialto Bridge"],
             [45.433962, 12.3367859, "St. Mark's Square"],
-            [45.4419074, 12.3213514, "Santa Lucia Station"]
+            [45.4419074, 12.3213514, "Santa Lucia Station"],
+            [45.4446423, 12.3221818, "Enoteca Vintido Wine Bar"]
         ];
 
         //loop through the array and add a marker for each
@@ -81,6 +86,14 @@
         //Rialto Bridge function
         function bridge() {
             map.setView(new L.LatLng(45.4386863,12.3253839),15.85);
+        };    
+        
+       function winebar() {
+            map.setView(new L.LatLng(45.4394373,12.3255768),15.6);
+        };    
+        
+        function myhotel() {
+            map.setView(new L.LatLng(45.4341971,12.330626),17.26);
         };    
     </script>
 
