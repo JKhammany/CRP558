@@ -47,29 +47,13 @@
             .bindPopup("Des Moines Art Center")
             .openPopup();
         
-        L.marker([41.5766527,-93.6584238]).addTo(map);
-        marker.bindPopup("Des Moines, IA").openPopup();
-        
         L.circleMarker(41.595711, -93.551167).addTo(map);
         L.circle([41.595711, -93.551167], {radius: 750}).addTo(map);
-        
-        var places = [
-            [41.5912062,-93.6058276, "Des Moines Capitol"],
-            [41.5851617,-93.6374831, "Pappajohn Sculpture Park"],
-            [41.5836483,-93.6303031, "Des Moines Social Club"]
-        ];
-
-        for (var i = 0; i < places.length; i++) {
-            marker = new L.marker([places[i][0], places[i][1]])
-                .bindPopup(places[i][2])
-                .addTo(map);
-        }
         
         var popup = L.popup()
     .setLatLng(41.5766527,-93.6584238)
     .setContent('<p>Welcome to Des Moines, Iowa. A place full of beautiful surprises</p>')
-    .openOn(map);
-        
+    .openOn(map);   
        
 var latlngs = [
     [41.591786, -93.606008],
@@ -80,9 +64,20 @@ var latlngs = [
 var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
 map.fitBounds(polyline.getBounds());
         
-      var platlngs = [[41.595836, -93.598854],[41.587007, -93.596831],[41.585397, -93.615684],[41.595362, -93.616374]];
-var polygon = L.polygon(platlngs, {color: 'blue'}).addTo(map);
-map.fitBounds(polygon.getBounds());  
+var latlngs = [[41.595836, -93.598854],[41.587007, -93.596831],[41.585397, -93.615684],[41.595362, -93.616374]];
+ var polygon = L.polygon(latlngs, {color: 'blue'}).addTo(map); map.fitBounds(polygon.getBounds());  
+        
+       var places = [
+            [41.5912062,-93.6058276, "Des Moines Capitol"],
+            [41.5851617,-93.6374831, "Pappajohn Sculpture Park"],
+            [41.5836483,-93.6303031, "Des Moines Social Club"]
+        ];
+
+        for (var i = 0; i < places.length; i++) {
+            marker = new L.marker([places[i][0], places[i][1]])
+                .bindPopup(places[i][2])
+                .addTo(map);
+        }
         
         function socialClub() {
             map.panTo(new L.LatLng(41.5836483,-93.6303031));
@@ -96,10 +91,7 @@ map.fitBounds(polygon.getBounds());
 
         function capitol() {
             map.setView(new L.LatLng(41.5912062,-93.6058276), 17);
-        };    
-        
-        
-        
+        };   
         
     </script>
 
