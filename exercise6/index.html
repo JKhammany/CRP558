@@ -47,6 +47,12 @@
             .bindPopup("Des Moines Art Center")
             .openPopup();
         
+        L.marker([41.5766527,-93.6584238]).addTo(map);
+        marker.bindPopup("Des Moines, IA").openPopup();
+        
+        L.circleMarker(41.595711, -93.551167).addTo(map);
+        L.circle([41.595711, -93.551167], {radius: 750}).addTo(map);
+        
         var places = [
             [41.5912062,-93.6058276, "Des Moines Capitol"],
             [41.5851617,-93.6374831, "Pappajohn Sculpture Park"],
@@ -58,6 +64,25 @@
                 .bindPopup(places[i][2])
                 .addTo(map);
         }
+        
+        var popup = L.popup()
+    .setLatLng(41.5766527,-93.6584238)
+    .setContent('<p>Welcome to Des Moines, Iowa. A place full of beautiful surprises</p>')
+    .openOn(map);
+        
+       
+var latlngs = [
+    [41.591786, -93.606008],
+    [41.5885558,-93.6175901],
+    [41.586979, -93.628995],
+    [41.585600, -93.635409]
+];
+var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+map.fitBounds(polyline.getBounds());
+        
+      var platlngs = [[41.595836, -93.598854],[41.587007, -93.596831],[41.585397, -93.615684],[41.595362, -93.616374]];
+var polygon = L.polygon(platlngs, {color: 'blue'}).addTo(map);
+map.fitBounds(polygon.getBounds());  
         
         function socialClub() {
             map.panTo(new L.LatLng(41.5836483,-93.6303031));
