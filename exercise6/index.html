@@ -5,7 +5,7 @@
     <meta name="description" content="LA/CRP 458/558 Leaflet starter file - 2020">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Des Moines Art Hotspots</title>
+    <title>Getting Started with Leaflet</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
         crossorigin=""/>
@@ -25,9 +25,10 @@
 
 <body>
     <div id='map'></div>
+    
 
     <script>
-        var map = L.map('map').setView([41.5884142,-93.6492243], 12.87);
+        var map = L.map('map').setView([41.588748,-93.6299837], 13.79);
 
 L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -41,26 +42,11 @@ L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
     L.circle([41.5912062,-93.6058276], {radius:20}).addTo(map);
         
-<<<<<<< HEAD
-        var latlngs = [[41.591786, -93.606008], [41.5885558,-93.6175901], [41.586979, -93.628995], [41.585600, -93.635409]]; 
+        var latlngs = [[41.591798, -93.606033], [41.5893018,-93.6195804], [41.586971, -93.628979], [41.585599, -93.635427]]; 
 var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
     
-var latlngs = [[41.585936, -93.633894],[41.585001, -93.633542],[41.584351, -93.636664],[41.585234, -93.637018]]; 
+var latlngs = [[41.585920, -93.633866],[41.585010, -93.633547],[41.584364, -93.636687],[41.585263, -93.637030]]; 
 var polygon = L.polygon(latlngs, {color: 'red'}).addTo(map);
-=======
-        L.circleMarker(41.595711, -93.551167), {radius: 10}).addTo(map);
-        L.circle([41.595711, -93.551167], {radius: 750}).addTo(map);
-       
-var latlngs = [
-    [41.591786, -93.606008],
-    [41.5885558,-93.6175901],
-    [41.586979, -93.628995],
-    [41.585600, -93.635409]];
-var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map); map.fitBounds(polyline.getBounds());
-        
-var latlngs = [[41.595836, -93.598854],[41.587007, -93.596831],[41.585397, -93.615684],[41.595362, -93.616374]];
- var polygon = L.polygon(latlngs, {color: 'blue'}).addTo(map); map.fitBounds(polygon.getBounds());  
->>>>>>> 5846d3d06bdfec37e45a6d213765d5ce702228da
         
     </script>
 
