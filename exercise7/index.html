@@ -39,6 +39,18 @@
         L.marker([19.8856538,102.1281351]).bindPopup('Luang Prabang, Laos').addTo(cities),
         L.marker([53.3244431,-6.385788]).bindPopup('Dublin, Ireland').addTo(cities);
         
+   var latlngs = [
+       [41.5668418,-93.7466018],
+       [53.3244431,-6.385788],
+       [52.3547459,4.7638763],
+       [45.4042008,12.1071511]
+       [19.8856538,102.1281351],
+       [13.7251088,100.3529077],
+       [-33.8473567,150.6517824]
+   ];
+        
+    var polyline = L.polyline(latlngs, {color: 'white'}).addTo(map);
+        
     var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
 			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -56,7 +68,7 @@
     var map = L.map('map', {
         center: [20.9340194,38.5321036],
         zoom: 3,
-        layers: [Stamen_Watercolor, cities]
+        layers: [Stamen_Watercolor, cities, polyline]
     });
         
     var baseLayers = {
@@ -66,6 +78,7 @@
         
     var overlays = {
         "Cities": cities
+        "Travel Route": polyline
     };
         
     L.control.layers(baseLayers, overlays).addTo(map);
