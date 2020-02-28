@@ -50,7 +50,25 @@
 	minZoom: 1,
 	maxZoom: 16,
 	ext: 'jpg'
-})
+});
+    var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr});
+    
+    var map = L.map('map', {
+        center: [20.9340194,38.5321036],
+        zoom: 3,
+        layers: [Stamen_Watercolor, cities]
+    });
+        
+    var baseLayers = {
+        "Watercolor": Stamen_Watercolor,
+        "Greyscale": grayscale
+    };
+        
+    var overlays = {
+        "Cities": cities
+    };
+        
+    L.control.layers(baseLayers, overlays).addTo(map);
     </script>
 </body>
 </html>
