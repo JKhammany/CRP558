@@ -49,7 +49,7 @@
        [-33.8473567,150.6517824]
    ];
         
-    var polyline = L.polyline(latlngs, {color: 'white'}).addTo(map);
+    var travelroute = L.polyline(latlngs, {color: 'white'}).addTo(travelroute);
         
     var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
 			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -68,7 +68,7 @@
     var map = L.map('map', {
         center: [20.9340194,38.5321036],
         zoom: 3,
-        layers: [Stamen_Watercolor, cities, polyline]
+        layers: [Stamen_Watercolor, cities, travelroute]
     });
         
     var baseLayers = {
@@ -78,7 +78,7 @@
         
     var overlays = {
         "Cities": cities
-        "Travel Route": polyline
+        "Travel Route": travelroute
     };
         
     L.control.layers(baseLayers, overlays).addTo(map);
