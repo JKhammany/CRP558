@@ -39,17 +39,10 @@
         L.marker([19.8856538,102.1281351]).bindPopup('Luang Prabang, Laos').addTo(cities),
         L.marker([53.3244431,-6.385788]).bindPopup('Dublin, Ireland').addTo(cities);
         
-   var latlngs = [
-       [41.5668418,-93.7466018],
-       [53.3244431,-6.385788],
-       [52.3547459,4.7638763],
-       [45.4042008,12.1071511]
-       [19.8856538,102.1281351],
-       [13.7251088,100.3529077],
-       [-33.8473567,150.6517824]
-   ];
-        
-    var travelroute = L.polyline(latlngs, {color: 'white'}).addTo(travelroute);
+    var waterfalls = L.layerGroup();
+        L.marker([19.749503,101.9897482]).bindPopup('Kuang Si Waterfall').addTo(waterfalls),
+        L.marker([14.3686327,99.1417536]).bindPopup('Erawan Falls').addTo(waterfalls),
+        L.marker([17.5834112,98.8153173]).bindPopup('Ko Luang Waterfall').addTo(waterfalls);
         
     var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
 			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -68,7 +61,7 @@
     var map = L.map('map', {
         center: [20.9340194,38.5321036],
         zoom: 3,
-        layers: [Stamen_Watercolor, cities, travelroute]
+        layers: [Stamen_Watercolor, cities]
     });
         
     var baseLayers = {
@@ -78,7 +71,7 @@
         
     var overlays = {
         "Cities": cities
-        "Travel Route": travelroute
+        "Waterfalls": waterfalls
     };
         
     L.control.layers(baseLayers, overlays).addTo(map);
