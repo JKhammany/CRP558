@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="description" content="LA/CRP 458/558 Leaflet starter file - 2020">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Exercise 7</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+      
+      <style>
+        #map {
+            width: 800px;
+            height: 600px;
+        }
+        
+    </style>
+    
+      </head>
+
+<body>
+    <div id='map'></div>
+    
+    <script>
+        
+    var cities = L.layerGroup();
+        L.marker([45.4042008,12.1071511]).bindPopup('Venice, Italy').addTo(cities),
+        L.marker([13.7251088,100.3529077]).bindPopup('Bangkok, Thailand').addTo(cities),
+        L.marker([-33.8473567,150.6517824]).bindPopup('Sydney, Australia').addTo(cities),
+        L.marker([52.3547459,4.7638763]).bindPopup('Amsterdam, Netherlands').addTo(cities),
+        L.marker([19.8856538,102.1281351]).bindPopup('Luang Prabang, Laos').addTo(cities),
+        L.marker([53.3244431,-6.385788]).bindPopup('Dublin, Ireland').addTo(cities);
+        
+    var waterfalls = L.layerGroup();
+        L.marker([19.749503,101.9897482]).bindPopup('Kuang Si Waterfall').addTo(waterfalls),
+        L.marker([14.3686327,99.1417536]).bindPopup('Erawan Falls').addTo(waterfalls),
+        L.marker([17.5834112,98.8153173]).bindPopup('Ko Luang Waterfall').addTo(waterfalls);
+        
+    var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamtoYW1tYW55IiwiYSI6ImNrNzVtZHRiYzAyczEzbHNkODU0eDhicm4ifQ.hZRGd1IOktYCk5GhkHuFuA';
+        
+    var Stamen_Watercolor = L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}', {
+	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	subdomains: 'abcd',
+	minZoom: 1,
+	maxZoom: 16,
+	ext: 'jpg'
+});
+    var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr});
+    
+    var map = L.map('map', {
+      center: [20.9340194,38.5321036],
+      zoom: 3,
+      layers: [Stamen_Watercolor, cities]
+    });
+    
+    var overlays = {
+      "Cities": cities
+      "Waterfalls": waterfalls
+    };
+    
+    L.control.layers(baseLayers,overlays).addTo(map);
+    </script>
+    
+ </body>
+ </html>
+    
+    
