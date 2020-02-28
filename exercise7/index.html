@@ -12,19 +12,16 @@
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
         crossorigin=""></script>
+      
+      <style>
+        #map {
+            width: 800px;
+            height: 600px;
+        }
+        
+    </style>
     
-    <style>
-		html, body {
-			height: 100%;
-			margin: 0;
-		}
-		#map {
-			width: 800px;
-			height: 600px;
-		}
-	</style>
-    
-    </head>
+      </head>
 
 <body>
     <div id='map'></div>
@@ -59,22 +56,20 @@
     var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr});
     
     var map = L.map('map', {
-        center: [20.9340194,38.5321036],
-        zoom: 3,
-        layers: [Stamen_Watercolor, cities]
+      center: [20.9340194,38.5321036],
+      zoom: 3,
+      layers: [Stamen_Watercolor, cities]
     });
-        
-    var baseLayers = {
-        "Watercolor": Stamen_Watercolor,
-        "Greyscale": grayscale
-    };
-        
+    
     var overlays = {
-        "Cities": cities
-        "Waterfalls": waterfalls
+      "Cities": cities
+      "Waterfalls": waterfalls
     };
-        
-    L.control.layers(baseLayers, overlays).addTo(map);
+    
+    L.control.layers(baseLayers,overlays).addTo(map);
     </script>
-</body>
-</html>
+    
+ </body>
+ </html>
+    
+    
