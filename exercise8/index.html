@@ -13,9 +13,9 @@
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
         crossorigin=""></script>
 
-    <script src="../geojson/USA.geojson"></script>
-    <script src="../geojson/AutomatedWeatherObservingSystem.geojson"></script>
-    <script src="../geojson/USA_cities.geojson"></script>
+    <script src="../geojsonfiles/Active Rail Lines.geojson"></script>
+    <script src="../geojsonfiles/Iowa Airports.geojson"></script>
+    <script src="../geojsonfiles/Iowa Counties.geojson"></script>
     
     <style>
         body {
@@ -118,7 +118,7 @@
     <div id='map'></div>
 
     <script>
-        var map = L.map('map').setView([42.0, -93.634], 3);
+        var map = L.map('map').setView([41.9249445,-95.1680797], 7.01);
 
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -128,13 +128,10 @@
             accessToken: 'pk.eyJ1IjoiamtoYW1tYW55IiwiYSI6ImNrN2NzMGJzbDAydnQzZW51Yjg4amdmd3oifQ.UhKdWR6FKYd-Or7mYAgp7g' 
         }).addTo(map);
         
-        L.geoJSON(usa).addTo(map);
-        L.geoJSON(weatherObservingSystem).addTo(map);
-        L.geoJSON(cities).addTo(map);
+        L.geoJSON(Active Rail Lines).addTo(map);
+        L.geoJSON(Iowa Airports).addTo(map);
+        L.geoJSON(Iowa Counties).addTo(map);
 
-        L.marker([42.00185, -93.63474]).addTo(map)
-            .bindPopup("My Office Location")
-            .openPopup();
     </script>
 
 </body>
