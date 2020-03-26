@@ -9,6 +9,19 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
 
+    <style>
+        html, body {
+			height: 100%;
+			margin: 0;
+		}
+		
+        #map {
+			width: 600px;
+			height: 400px;
+		}
+	    
+        #map { width: 800px; height: 500px; }
+    </style>
 </head>
   
 <!-- styling of navbar -->
@@ -94,15 +107,15 @@ li.dropdown {
 </ul>
 
 <body>
-  <p>As an Asian American, I'm very proud of my heritage and where I came from so I decided to look into the percentage of Asian Americans in each state with the idea of racism regarding the Coronavirus. I further just wanted to look into the connections that percent of Asians had over the population totals and in regards to density. </p>
+  <p>As an Asian American, I'm very proud of my heritage and where I came from so I decided to look into the percentage of Asian Americans in each state with the idea of racism regarding the Coronavirus. I further just wanted to look into the connections that percent of Asians had over the population totals and in regards to density. I also wanted to look into the most recent median household income data to help guide my decisions for post-graduation in times of this pandemic.</p>
  
     <br>
   
     <img src="https://jkhammany.github.io/CRP558/images/AsianGirl.jpeg" alt="Asian Girl With Face Mask" width="500" height="300">
-    
+    <p style="color:gray">Image: Eva Wong <a href="https://www.pexels.com/photo/20-25-years-old-woman-asian-woman-face-mask-graffiti-2461511/">Link to Photo</a></p>
     <br>
     
-  <p>The map that I will be trying to display is a map that show the percentage of Asians in each state, the total population of Americans in each state, as well as the density in square miles.</p>
+  <p>The map that I will be trying to display is a map that shows the percentage of Asians in each state, the total population of Americans in each state, as well as the density in square miles according to the data in the 2010 Census. I will also include the most recent data for median household income of each state.</p>
 
   <div id='map'></div>
 
