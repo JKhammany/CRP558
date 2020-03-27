@@ -10,9 +10,10 @@
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
 
     <style>
+        body {margin: 25px;}
         html, body {
 			height: 100%;
-			margin: 0;
+			margin: 25px;
 		}
 		
         #map {
@@ -112,10 +113,12 @@ li.dropdown {
     <br>
   
     <img src="https://jkhammany.github.io/CRP558/images/AsianGirl.jpeg" alt="Asian Girl With Face Mask" width="500" height="300">
-    <p style="color:gray">Image: Eva Wong <a href="https://www.pexels.com/photo/20-25-years-old-woman-asian-woman-face-mask-graffiti-2461511/">Link to Photo</a></p>
+    <p style="color:gray">Image: Eva Wong <a href="https://www.pexels.com/photo/20-25-years-old-woman-asian-woman-face-mask-graffiti-2461511/"><i>Link to Photo</i></a></p>
     <br>
     
   <p>The map that I will be trying to display is a map that shows the percentage of Asians in each state, the total population of Americans in each state, as well as the density in square miles according to the data in the 2010 Census. I will also include the most recent data for median household income of each state.</p>
+    
+<h1 style="font-size: 30; color:blue">Population Choropleth Map 2010</h1>
 
   <div id='map'></div>
 
@@ -138,7 +141,7 @@ li.dropdown {
     
     L.geoJson(polystData).addTo(map);
     
-// get color depending on population value
+// get color depending on population value & highlight style
 	function getColorPop(d) {
 		return d > 15000000 ? '#253494' :
 				d > 7500000  ? '#2c7fb8' :
@@ -154,7 +157,7 @@ li.dropdown {
 			opacity: 1,
 			color: 'white',
 			fillOpacity: 0.7,
-			fillColor: getColor(feature.properties.density)
+			fillColor: getColor(feature.properties.population)
 		};
 	}
 
@@ -196,6 +199,44 @@ li.dropdown {
 		style: style,
 		onEachFeature: onEachFeature
 	}).addTo(map);
+    
+// Adding Legend
+    
+var legend = L.control({position: 'bottomleft'});
+
+legend.onAdd = function (map) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [0, 500000, 2500000, 3500000, 7500000, 15000000],
+        labels = [];
+
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColorPop(grades[i] + 1) + '"></i> ' +
+            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+    }
+
+    return div;
+};
+
+legend.addTo(map);
+    
+    <br>
+    
+// map with layers
+    
+<h2 style="font-size: 30; color:blue">Percentage of Asians 2018 & Density Map 2010</h2> 
+    
+  <script type="text/javascript" src="../geojsonfiles/poly-states.js"></script>
+ 
+<script>
+      
+    var map = L.map('map').setView([43, -93], 7);
+    
+var osm = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
+  maxZoom: 18
+}).addTo(map);
 
     // base layers
     
@@ -208,9 +249,62 @@ var Esri_WorldGrayCanvas = L.tileLayer('https://server.arcgisonline.com/ArcGIS/r
 	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
 	maxZoom: 16
 });
+    
+// Overlay Layers
+    
+L.geoJSON(data, {
+    style: function (feature) {
+        return {color: feature.properties.density};
+    }
+}).bindPopup(function (layer) {
+    return layer.feature.properties.density;
+}).addTo(map);
+    
+ L.geoJSON(data, {
+    style: function (feature) {
+        return {color: feature.properties.income};
+    }
+}).bindPopup(function (layer) {
+    return layer.feature.properties.income;
+}).addTo(map);
+    
+// Layer Control
+    
+var baseLayers = {
+    "OpenStreetMap_Mapnik": mapbox,
+    "Esri_WorldGrayCanvas": grey
+};
+var overlays = {
+    "Density": density,
+    "Income": income
+};
+L.control.layers(baseLayers, overlays).addTo(map);
+    
+// Buttons
+    
+function Ames() {
+            map.panTo(new L.LatLng(42.0258192,-93.6964163));
+        }
+
+function zoomOut() {
+            map.setZoom(10);
+        };
+
+    document.getElementById("hawaii").addEventListener("click", Hawaii);
+
+function hawaii() {
+            map.setView(new L.LatLng(20.4507536,-159.7497478,7);
+        };    
+    
+    </script> 
   
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
+    <br>
+
+<p>I wanted to combine maps and originally show different sized bubbles for asian population percentage and the median income for each state where you could toggle which information you wanted to see. I also wanted to have a cloropleth map layers of overall population and density layer that you could toggle through. I obviously am in over my head and don't know how to combine different components altogether.</p>
+    
+<p>The data I used for my maps came from a combination of using Census Bureau data and inserting them into a geojson file copied from leaflet's choropleth example. <a href="https://leafletjs.com/examples/choropleth/"><i>Leaflet link found here.</i></a></p>
+    
+    <br>
 
 </body>
 </html>
