@@ -1,7 +1,104 @@
-ArcGIS Javascript API by Kelsey Van Selous
+<!DOCTYPE html>
+<html>
+<head>
+<title>Peer Review #2</title>
+</head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #003366;
+}
 
-I really liked your overall design of the report page and I really appreciated that you wrote step-by-step instructions to follow along with. I also really enjoy that you have embedded links and an additional section for references and additional resources because it appears that you put a lot of time and thought into your report. The headings and subsections make your report really easy to follow and read. I also appreciate that you described the level of user usability because that is extremely helpful to know. I think its cool that you chose something more complex to show us.
+li {
+  float: left;
+}
 
-I think something that would help your report visually is making the headings and subheadings bigger so readers can more easily digest what section they are reading into. Also, in places where the report is text heavy, some pictures that supplement your writing would help break up your report. It would be cool to see other examples like how you described that weather apps and air fare apps use API. Also, I was wondering if the shapes that you have in your mapping can be 3D renderings through Javascript API, like if that function is possible.
+li a, .dropbtn {
+  display: inline-block;
+  color: #b3b3b3;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
 
-I do agree that ArcGIS Javascript API makes mapping content more interactive for users so that will be useful to me in situations where I would like to display 3D aspects. This could apply to projects such as if I were to look into housing that is at elevations at risk of being flooded and wanted to look into social demographics like income. 
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: #e6f2ff;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #e6f2ff;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+
+<body>
+
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="assignbtn">Assignments</a>
+    <div class="dropdown-content">
+      <a href="https://jkhammany.github.io/CRP558/Assignment1/">Assignment 1</a>
+      <a href="https://jkhammany.github.io/CRP558/Assignment2/">Assignment 2</a>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="reviewbtn">Peer Reviews</a>
+    <div class="dropdown-content">
+      <a href="https://jkhammany.github.io/CRP558/TechPeerReview/CreatingHeatMaps">Peer Review 1</a>
+      <a href="https://jkhammany.github.io/CRP558/TechPeerReview/JavascriptAPI">Peer Review 2</a>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="exerbtn">Exercises</a>
+    <div class="dropdown-content">
+      <a href="https://jkhammany.github.io/CRP558/exercise1/">Exercise 1</a>
+      <a href="https://jkhammany.github.io/CRP558/Exercise2/">Exercise 2</a>
+      <a href="https://github.com/JKhammany/CRP558/blob/master/Exercise3/IowaDams.geojson">Exercise 3</a>
+      <a href="https://jkhammany.github.io/CRP558/exercise4/Iowa%20Rivers%20&%20Dams/index.html">Exercise 4</a>
+      <a href="https://jkhammany.github.io/CRP558/exercise%205/">Exercise 5</a>
+      <a href="https://jkhammany.github.io/CRP558/exercise6/">Exercise 6</a>
+      <a href="https://jkhammany.github.io/CRP558/exercise7/">Exercise 7</a>
+      <a href="https://jkhammany.github.io/CRP558/exercise8/">Exercise 8</a>
+      <a href="#">Exercise 9</a>
+      <a href="#">Exercise 10</a>
+    </div>
+  </li>
+</ul>
+
+<h1 style="font-size: 30">ArcGIS Javascript API by Kelsey Van Selous</h1>
+
+<p>I really liked your overall design of the report page and I really appreciated that you wrote step-by-step instructions to follow along with. I also really enjoy that you have embedded links and an additional section for references and additional resources because it appears that you put a lot of time and thought into your report. The headings and subsections make your report really easy to follow and read. I also appreciate that you described the level of user usability because that is extremely helpful to know. I think its cool that you chose something more complex to show us.</p>
+
+<br>
+
+<p>I think something that would help your report visually is making the headings and subheadings bigger so readers can more easily digest what section they are reading into. Also, in places where the report is text heavy, some pictures that supplement your writing would help break up your report. It would be cool to see other examples like how you described that weather apps and air fare apps use API. Also, I was wondering if the shapes that you have in your mapping can be 3D renderings through Javascript API, like if that function is possible.</p>
+
+<br>
+
+<p>I do agree that ArcGIS Javascript API makes mapping content more interactive for users so that will be useful to me in situations where I would like to display 3D aspects. This could apply to projects such as if I were to look into housing that is at elevations at risk of being flooded and wanted to look into social demographics like income.</p>
+
+
+</body>
+</html>
