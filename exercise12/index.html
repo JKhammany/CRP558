@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="description" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Exercise 12</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+    <style>
+        #map {
+            width: 700px;
+            height: 500px;
+        }
+        
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #003366;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: #b3b3b3;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: #e6f2ff;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #e6f2ff;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+    </style>
+
+</head>
+
+<body>
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="assignbtn">Assignments</a>
+    <div class="dropdown-content">
+      <a href="https://jkhammany.github.io/CRP558/Assignment1/">Assignment 1</a>
+      <a href="https://jkhammany.github.io/CRP558/Assignment2/">Assignment 2</a>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="exerbtn">Exercises</a>
+    <div class="dropdown-content">
+      <a href="https://jkhammany.github.io/CRP558/exercise1/">Exercise 1</a>
+      <a href="https://jkhammany.github.io/CRP558/Exercise2/">Exercise 2</a>
+      <a href="https://github.com/JKhammany/CRP558/blob/master/Exercise3/IowaDams.geojson">Exercise 3</a>
+      <a href="https://jkhammany.github.io/CRP558/exercise4/Iowa%20Rivers%20&%20Dams/index.html">Exercise 4</a>
+      <a href="https://jkhammany.github.io/CRP558/exercise%205/">Exercise 5</a>
+      <a href="https://jkhammany.github.io/CRP558/exercise6/">Exercise 6</a>
+      <a href="https://jkhammany.github.io/CRP558/exercise7/">Exercise 7</a>
+      <a href="https://jkhammany.github.io/CRP558/exercise8/">Exercise 8</a>
+      <a href="#">Exercise 9</a>
+      <a href="#">Exercise 10</a>
+      <a href="https://jkhammany.github.io/CRP558/exercise11/">Exercise 11</a>
+      <a href="https://jkhammany.github.io/CRP558/exercise12/">Exercise 12</a>
+  <li><a href="https://jkhammany.github.io/CRP558/FinalProject/">Final Project</a></li>
+    </div>
+  </li>
+</ul>
+
+    <div id='map'></div>
+
+    <script>
+        var map = L.map('map').setView([42.0, -93.634], 14);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/bahanson1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'ck8fz8ufm4q581imyixtb4vv2',
+            // This is a unique access token, you must register for your own from https://account.mapbox.com/access-tokens/
+            accessToken: 'pk.eyJ1IjoiamtoYW1tYW55IiwiYSI6ImNrOHJzemswYjAxM3EzZXFwa3J0aHd6ZzIifQ.PD0Z7Z8v-rne_uiqKmbV8g' 
+        }).addTo(map);
+    </script>
+    
+    <p></p>
+
+</body>
+</html>
