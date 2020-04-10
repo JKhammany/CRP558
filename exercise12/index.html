@@ -104,18 +104,21 @@ li.dropdown {
     <div id='map'></div>
 
     <script>
-        var map = L.map('map').setView([42.0, -93.634], 14);
-
-        L.tileLayer('https://api.mapbox.com/styles/v1/bahanson1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        var map = L.map('map').setView([41.587,-93.611
+], 14.21);
+       L.tileLayer('https://api.mapbox.com/styles/v1/jkhammany/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
-            id: 'ck8fz8ufm4q581imyixtb4vv2',
+            id: 'ck8teykgc0bu71iqgufhefiuc',
             // This is a unique access token, you must register for your own from https://account.mapbox.com/access-tokens/
             accessToken: 'pk.eyJ1IjoiamtoYW1tYW55IiwiYSI6ImNrOHJzemswYjAxM3EzZXFwa3J0aHd6ZzIifQ.PD0Z7Z8v-rne_uiqKmbV8g' 
         }).addTo(map);
     </script>
     
-    <p></p>
+    <p>I used the basic template with a spring palette for my base layer. I changed the colors of the water and greenspace to match the colors in the base palette because I liked the green and blue from that palette but with the spring base color. I also changed the color of roadways to match the color that the streets template uses. I also changed the font color of places to be darker depending on if it was major or minor as well as adjusting the zoom for the place labels. The last change I made was changing and reducing the line opacity for roads so that it wouldn't be as distracting. I also got rid of the halo around the street labeling to make it easier to read. </p>
 
+      <br>
+      
+      <p>I tried adding outside shapefiles to add to the map but I don't think it was within the right parameters so I decided to make a small dataset to see if it would work. I added a couple bars that I like in Des Moines and a polygon shape around West Glen in my additional layer. It shows in the layers page but doesn't show up on the actual map.</p>
 </body>
 </html>
