@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Assignment 2</title>
+<title>Final Project</title>
   
   <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    
+    <script src="../geojsonfiles/census-diversity.geojson"</script>
 
     <style>
         body {margin: 25px;}
@@ -22,6 +24,9 @@
 		}
 	    
         #map { width: 800px; height: 500px; }
+        
+        h1 {font-size: 50px; color: darkcyan}
+        
     </style>
 </head>
   
@@ -85,7 +90,7 @@ li.dropdown {
 <!-- navbar contents -->
 <ul>
   <li><a href="#home">Home</a></li>
-  <li><a href="">Final Project</a></li>
+  <li><a href="https://jkhammany.github.io/CRP558/FinalProject/">Final Project</a></li>
   <li class="dropdown">
     <a href="javascript:void(0)" class="assignbtn">Assignments</a>
     <div class="dropdown-content">
@@ -110,6 +115,39 @@ li.dropdown {
 
 <body>
   
-  <h1>Housing Affordability in Diverse Places</h1>
+  <h1>Housing Affordability in America</h1>
   
+  <div id='map'></div>
   
+     <script>
+        var map = L.map('map').setView([38.8413968, -116.9681401], 4);
+
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            // This is a unique access token, you must register for your own from https://account.mapbox.com/access-tokens/
+            accessToken: 'pk.eyJ1IjoiamtoYW1tYW55IiwiYSI6ImNrOXNmMHZicjEza2YzbnIxZjBvY2lmMTMifQ._hq_DO46E66oNAVD5_bcIw' 
+        }).addTo(map);
+        
+        L.geoJSON(States).addTo(map);
+
+        var cities = [
+            [40.6971494, -74.2598745, "New York"],
+            [34.0201613, -118.6919303, "Los Angeles"],
+            [29.481137, -98.7946048, "San Antonio"],
+            [39.7642547, -104.9951978, "Denver"],
+            [44.9706114, -93.401564, "Minneapolis"],
+            [47.6129432, -122.4821495, "Seattle"],
+            [36.1246737, -115.4551965, "Las Vegas"],
+            [36.186314, -87.0654419, "Nashville"],
+            [35.2028307, -81.120026, "Charlotte"],
+            [25.7823907, -80.2994994, "Miami"]
+        ]
+
+    </script>
+
+</body>
+</html>
+    
+    
