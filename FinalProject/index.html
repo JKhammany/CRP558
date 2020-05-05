@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
     
-    <script src="../geojsonfiles/census-diversity.geojson"</script>
+    <script src="../geojsonfiles/census-diversity.geojson"></script>
 
     <style>
         body {margin: 25px;}
@@ -84,7 +84,7 @@ li.dropdown {
   display: block;
 }
 </style>
-</head>
+
 <body>
 
 <!-- navbar contents -->
@@ -144,6 +144,13 @@ li.dropdown {
             [35.2028307, -81.120026, "Charlotte"],
             [25.7823907, -80.2994994, "Miami"]
         ]
+        
+         for (var i = 0; i < cities.length; i++) {
+            marker = new L.marker([cities[i][0], cities[i][1]])
+                .bindPopup(cities[i][2])
+                .addTo(map);
+        }
+
 
     </script>
 
