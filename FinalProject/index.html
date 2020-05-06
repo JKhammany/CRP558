@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
     
-    <script src="../geojsonfiles/census-diversity.geojson"></script>
+    <script src="../geojsonfiles/poly-states.js"></script>
 
     <style>
         body {margin: 25px;}
@@ -113,11 +113,15 @@ li.dropdown {
   </li>
 </ul>
 
-<body>
-  
+<body> 
+    
   <h1>Housing Affordability in America</h1>
   
   <div id='map'></div>
+    
+    <button id="nybtn">New York City, New York</button>
+    <button id="cabtn">Los Angeles, California</button>
+    <button id="flbtn">Miami, Florida</button>
   
      <script>
         var map = L.map('map').setView([38.8413968, -116.9681401], 4);
@@ -130,7 +134,7 @@ li.dropdown {
             accessToken: 'pk.eyJ1IjoiamtoYW1tYW55IiwiYSI6ImNrOXNmMHZicjEza2YzbnIxZjBvY2lmMTMifQ._hq_DO46E66oNAVD5_bcIw' 
         }).addTo(map);
         
-        L.geoJSON(States).addTo(map);
+        L.geoJSON(polystData).addTo(map);
 
         var cities = [
             [40.6971494, -74.2598745, "New York"],
@@ -150,7 +154,18 @@ li.dropdown {
                 .bindPopup(cities[i][2])
                 .addTo(map);
         }
-
+    
+    function ny() {
+        map.setView(new L.LatLng(40.6971494, -74.2598745), 10);
+    };
+         
+    function ca() {
+        map.setView(new L.LatLng(34.0201613, -118.6919303), 10);
+    };
+         
+    function fl() {
+        map.setView(new L.LatLng(25.7823907, -80.2994994), 12);
+    };
 
     </script>
 
